@@ -11,3 +11,8 @@ x=data.iloc[:,:-1]
 y=data.iloc[:,-1:]
 xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.2)
 plt.plot(xtrain,ytrain,"ro");
+lr=LinearRegression()
+lr.fit(xtrain,ytrain)
+predlr=lr.predict(xtest)
+plt.plot(xtest,ytest,"ro",xtest,predlr,"--y")
+r2_score(ytest,predlr);
